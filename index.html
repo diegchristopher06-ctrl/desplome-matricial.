@@ -3,33 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>Calculadora de Desplome UES - Grupo 6</title>
     <style>
         body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; padding: 20px; color: #212529; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .container { max-width: 450px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-top: 6px solid #b71c1c; }
         .header { text-align: center; margin-bottom: 20px; }
-        .logo { max-width: 100px; margin-bottom: 15px; }
+        .logo { max-width: 100px; height: auto; margin-bottom: 15px; }
         h2 { color: #b71c1c; margin: 0; font-size: 1.3em; letter-spacing: 0.5px; }
         .sub-header { color: #6c757d; font-size: 0.8em; margin-top: 5px; font-weight: bold; text-transform: uppercase; }
         
-        label { display: block; margin-top: 15px; font-weight: 600; font-size: 0.85em; color: #495057; }
+        label { display: block; margin-top: 15px; font-weight: 600; font-size: 0.85em; color: #495057; text-align: left; }
         input { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ced4da; border-radius: 6px; box-sizing: border-box; font-size: 1em; }
         
         button { width: 100%; padding: 15px; background-color: #b71c1c; color: white; border: none; border-radius: 6px; margin-top: 25px; font-size: 15px; font-weight: bold; cursor: pointer; }
         button:hover { background-color: #8e1616; }
         
-        .result { margin-top: 25px; padding: 15px; background-color: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 6px; }
+        .result { margin-top: 25px; padding: 15px; background-color: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 6px; text-align: left; }
         
         .app-links { margin-top: 30px; padding: 15px; background-color: #f8f9fa; border: 1px solid #eee; border-radius: 8px; text-align: center; }
-        /* Encabezado en Rojo y Mayúsculas */
         .app-title { font-size: 0.8em; color: #b71c1c; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
         .btn-group { display: flex; justify-content: center; gap: 15px; }
-        .app-btn { min-width: 100px; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 0.85em; font-weight: bold; transition: transform 0.2s; }
+        .app-btn { min-width: 90px; padding: 10px; border-radius: 5px; text-decoration: none; font-size: 0.8em; font-weight: bold; text-align: center; }
         .android { background-color: #3DDC84; color: #073042; }
         .ios { background-color: #000000; color: white; }
-        .app-btn:active { transform: scale(0.95); }
 
         .authors-box { margin-top: 30px; padding-top: 15px; border-top: 1px solid #eee; text-align: center; }
         .names { font-size: 0.85em; color: #495057; font-style: italic; }
@@ -63,12 +59,8 @@
     <div class="app-links">
         <div class="app-title">APP DE MEDICIÓN DE ÁNGULOS</div>
         <div class="btn-group">
-            <a href="https://play.google.com/store/apps/details?id=com.plaincode.clinometer" target="_blank" class="app-btn android">
-                ANDROID
-            </a>
-            <a href="https://apps.apple.com/us/app/clinometer-level-and-slope/id286215117" target="_blank" class="app-btn ios">
-                IOS
-            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.plaincode.clinometer" target="_blank" class="app-btn android">ANDROID</a>
+            <a href="https://apps.apple.com/us/app/clinometer-level-and-slope/id286215117" target="_blank" class="app-btn ios">IOS</a>
         </div>
     </div>
 
