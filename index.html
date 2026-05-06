@@ -9,7 +9,6 @@
         .container { max-width: 450px; margin: auto; background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-top: 8px solid #b71c1c; }
         .header { text-align: center; margin-bottom: 30px; }
         
-        /* Estilo específico para el Logo */
         .logo {
             max-width: 120px;
             height: auto;
@@ -36,6 +35,25 @@
         .authors-title { font-size: 0.75em; color: #b71c1c; font-weight: bold; letter-spacing: 2px; margin-bottom: 10px; }
         .names { font-size: 0.85em; color: #495057; font-style: italic; line-height: 1.6; }
         .faculty { font-size: 0.7em; color: #adb5bd; margin-top: 12px; font-weight: bold; text-transform: uppercase; line-height: 1.4; }
+
+        /* Estilo para el link de la App sin QR */
+        .app-footer {
+            margin-top: 20px;
+            text-align: center;
+            border-top: 1px dashed #ccc;
+            padding-top: 15px;
+        }
+        .app-link {
+            font-size: 0.8em;
+            color: #b71c1c;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .app-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -74,6 +92,13 @@
             Universidad de El Salvador © 2026
         </div>
     </div>
+
+    <!-- Sección del Link de la App -->
+    <div class="app-footer">
+        <a href="https://diegchristopher06-ctrl.github.io/desplome-matricial/" class="app-link">
+            App de Medición de Ángulos y Desplome
+        </a>
+    </div>
 </div>
 
 <script>
@@ -88,7 +113,6 @@
         }
 
         const rad = Math.PI / 180;
-        // El desplome en X depende del ángulo de inclinación hacia ese eje (usualmente relacionado con el ángulo en Y en topografía)
         let desplomeX = H * Math.sin(yDeg * rad);
         let desplomeY = H * Math.sin(xDeg * rad);
         let desplomeTotal = Math.sqrt(Math.pow(desplomeX, 2) + Math.pow(desplomeY, 2));
