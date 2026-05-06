@@ -3,52 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Desplome UES - Grupo 6</title>
+    <title>Calculadora de Desplome - Ingeniería Civil</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; padding: 20px; color: #212529; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; padding: 20px; color: #212529; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .container { max-width: 450px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-top: 6px solid #b71c1c; }
         .header { text-align: center; margin-bottom: 20px; }
-        .logo { max-width: 100px; margin-bottom: 15px; }
-        h2 { color: #b71c1c; margin: 0; font-size: 1.3em; letter-spacing: 0.5px; }
-        .sub-header { color: #6c757d; font-size: 0.8em; margin-top: 5px; font-weight: bold; text-transform: uppercase; }
         
-        label { display: block; margin-top: 15px; font-weight: 600; font-size: 0.85em; color: #495057; }
+        /* Ajuste del logo para que siempre cargue */
+        .logo { max-width: 120px; height: auto; margin-bottom: 15px; display: block; margin-left: auto; margin-right: auto; }
+        
+        h2 { color: #b71c1c; margin: 0; font-size: 1.5em; letter-spacing: 0.5px; text-transform: uppercase; }
+        .sub-header { color: #6c757d; font-size: 0.85em; margin-top: 5px; font-weight: bold; }
+        
+        label { display: block; margin-top: 18px; font-weight: 600; font-size: 0.85em; color: #495057; }
         input { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ced4da; border-radius: 6px; box-sizing: border-box; font-size: 1em; }
         input:focus { border-color: #b71c1c; outline: none; background-color: #fff8f8; }
         
-        button { width: 100%; padding: 15px; background-color: #b71c1c; color: white; border: none; border-radius: 6px; margin-top: 25px; font-size: 15px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(183, 28, 28, 0.2); }
-        button:hover { background-color: #8e1616; }
+        button { width: 100%; padding: 15px; background-color: #b71c1c; color: white; border: none; border-radius: 6px; margin-top: 25px; font-size: 15px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(183, 28, 28, 0.2); transition: 0.3s; }
+        button:hover { background-color: #8e1616; transform: translateY(-1px); }
         
         .result { margin-top: 25px; padding: 15px; background-color: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 6px; }
         
         .authors-box { margin-top: 40px; padding-top: 15px; border-top: 1px solid #eee; text-align: center; }
         .authors-title { font-size: 0.7em; color: #b71c1c; font-weight: bold; letter-spacing: 2px; margin-bottom: 8px; }
         .names { font-size: 0.85em; color: #495057; font-style: italic; line-height: 1.6; }
-        .faculty { font-size: 0.7em; color: #adb5bd; margin-top: 8px; font-weight: bold; }
+        .faculty { font-size: 0.7em; color: #adb5bd; margin-top: 8px; font-weight: bold; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <img src="https://www.ues.edu.sv/wps/wcm/connect/e7c6509f-4315-46f9-8667-8f5b4d7c0f06/Logo_UES_2023.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE-e7c6509f-4315-46f9-8667-8f5b4d7c0f06-omXoQO8" alt="Logo UES" class="logo">
+        <!-- URL DEL LOGO ACTUALIZADA Y MÁS ESTABLE -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Logo_de_la_UES.svg/120px-Logo_de_la_UES.svg.png" alt="Logo UES" class="logo">
         <h2>Ingeniería Civil</h2>
-        <div class="sub-header">Cátedra: Álgebra Vectorial y Lineal (2026)</div>
+        <div class="sub-header">Proyecto de: Álgebra Vectorial y Lineal (2026)</div>
     </div>
     
     <label>Altura de la Estructura (m):</label>
     <input type="number" id="altura" placeholder="Ej: 3.50" step="0.01">
 
     <label>Ángulo en Eje X (Grados):</label>
-    <input type="number" id="angX" placeholder="0.0" step="0.1">
+    <input type="number" id="angX" placeholder="Lectura X" step="0.1">
 
     <label>Ángulo en Eje Y (Grados):</label>
-    <input type="number" id="angY" placeholder="0.0" step="0.1">
+    <input type="number" id="angY" placeholder="Lectura Y" step="0.1">
 
     <button onclick="calcular()">CALCULAR DESPLOME MATRICIAL</button>
 
     <div id="resultado" class="result" style="display:none;">
-        <strong style="font-size: 0.9em;">INFORME TÉCNICO GRUPO 6:</strong>
+        <strong style="font-size: 0.9em;">REPORTE TÉCNICO - GRUPO 6:</strong>
         <p id="desplomeTexto" style="margin: 10px 0 0 0; font-size: 1em;"></p>
     </div>
 
@@ -58,8 +62,8 @@
             Hernández, Christopher — López, María — Figueroa, Daniela
         </div>
         <div class="faculty">
-            GRUPO 6 | ÁLGEBRA VECTORIAL Y LINEAL 2026<br>
-            FACULTAD MULTIDISCIPLINARIA DE OCCIDENTE - UES
+            FACULTAD MULTIDISCIPLINARIA DE OCCIDENTE<br>
+            UNIVERSIDAD DE EL SALVADOR © 2026
         </div>
     </div>
 </div>
@@ -71,7 +75,7 @@
         const yDeg = parseFloat(document.getElementById('angY').value);
         
         if (isNaN(H) || isNaN(xDeg) || isNaN(yDeg)) {
-            alert("Error: Complete los parámetros de medición para proceder.");
+            alert("Error: Por favor complete todos los datos de medición.");
             return;
         }
 
@@ -82,10 +86,10 @@
 
         document.getElementById('resultado').style.display = "block";
         document.getElementById('desplomeTexto').innerHTML = 
-            `Desplome en X: <b>${(desplomeX * 100).toFixed(2)} cm</b><br>` +
-            `Desplome en Y: <b>${(desplomeY * 100).toFixed(2)} cm</b><br>` +
+            `Desplome Eje X: <b>${(desplomeX * 100).toFixed(2)} cm</b><br>` +
+            `Desplome Eje Y: <b>${(desplomeY * 100).toFixed(2)} cm</b><br>` +
             `<hr style="border:0; border-top:1px solid #f5c6cb; margin:10px 0;">` +
-            `<span style="font-size: 1.1em; color: #b71c1c;"><b>Desplome Resultante: ${(desplomeTotal * 100).toFixed(2)} cm</b></span>`;
+            `<span style="font-size: 1.1em; color: #b71c1c;"><b>Desplome Total: ${(desplomeTotal * 100).toFixed(2)} cm</b></span>`;
     }
 </script>
 
