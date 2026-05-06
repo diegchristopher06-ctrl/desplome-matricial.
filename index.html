@@ -6,36 +6,34 @@
     <title>Calculadora de Desplome - Ingeniería Civil</title>
     <style>
         body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; padding: 20px; color: #212529; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
-        .container { max-width: 450px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-top: 6px solid #b71c1c; }
-        .header { text-align: center; margin-bottom: 20px; }
+        .container { max-width: 450px; margin: auto; background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-top: 8px solid #b71c1c; }
+        .header { text-align: center; margin-bottom: 30px; }
         
-        /* Estilo del Escudo UES Dibujado */
-        .escudo-ues { width: 100px; height: 100px; margin: 0 auto 15px auto; display: block; }
+        h2 { color: #b71c1c; margin: 0; font-size: 1.8em; letter-spacing: 1px; text-transform: uppercase; font-weight: 800; }
+        .sub-header { color: #6c757d; font-size: 0.9em; margin-top: 8px; font-weight: bold; }
         
-        h2 { color: #b71c1c; margin: 0; font-size: 1.5em; letter-spacing: 0.5px; text-transform: uppercase; }
-        .sub-header { color: #6c757d; font-size: 0.85em; margin-top: 5px; font-weight: bold; }
-        label { display: block; margin-top: 18px; font-weight: 600; font-size: 0.85em; color: #495057; }
-        input { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ced4da; border-radius: 6px; box-sizing: border-box; font-size: 1em; }
-        button { width: 100%; padding: 15px; background-color: #b71c1c; color: white; border: none; border-radius: 6px; margin-top: 25px; font-size: 15px; font-weight: bold; cursor: pointer; }
-        .result { margin-top: 25px; padding: 15px; background-color: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 6px; }
-        .authors-box { margin-top: 40px; padding-top: 15px; border-top: 1px solid #eee; text-align: center; }
-        .names { font-size: 0.85em; color: #495057; font-style: italic; }
-        .faculty { font-size: 0.7em; color: #adb5bd; margin-top: 8px; font-weight: bold; text-transform: uppercase; }
+        label { display: block; margin-top: 20px; font-weight: 600; font-size: 0.85em; color: #495057; text-transform: uppercase; }
+        input { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ced4da; border-radius: 6px; box-sizing: border-box; font-size: 1em; transition: 0.2s; }
+        input:focus { border-color: #b71c1c; outline: none; box-shadow: 0 0 0 3px rgba(183, 28, 28, 0.1); }
+        
+        button { width: 100%; padding: 16px; background-color: #b71c1c; color: white; border: none; border-radius: 6px; margin-top: 30px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        button:hover { background-color: #8e1616; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(183, 28, 28, 0.2); }
+        
+        .result { margin-top: 25px; padding: 15px; background-color: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 6px; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .authors-box { margin-top: 45px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; }
+        .authors-title { font-size: 0.75em; color: #b71c1c; font-weight: bold; letter-spacing: 2px; margin-bottom: 10px; }
+        .names { font-size: 0.85em; color: #495057; font-style: italic; line-height: 1.6; }
+        .faculty { font-size: 0.7em; color: #adb5bd; margin-top: 12px; font-weight: bold; text-transform: uppercase; line-height: 1.4; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <svg class="escudo-ues" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="none" stroke="#b71c1c" stroke-width="2"/>
-            <circle cx="50" cy="50" r="38" fill="none" stroke="#b71c1c" stroke-width="1"/>
-            <path d="M50 25 L53 38 L67 38 L56 46 L60 60 L50 52 L40 60 L44 46 L33 38 L47 38 Z" fill="#b71c1c"/>
-            <text x="50" y="82" font-family="Arial" font-size="10" text-anchor="middle" fill="#b71c1c" font-weight="bold">UES</text>
-        </svg>
-        
         <h2>Ingeniería Civil</h2>
-        <div class="sub-header">Proyecto de: Álgebra Vectorial y Lineal (2026)</div>
+        <div class="sub-header">Álgebra Vectorial y Lineal (2026)</div>
     </div>
     
     <label>Altura de la Estructura (m):</label>
@@ -47,16 +45,22 @@
     <label>Ángulo en Eje Y (Grados):</label>
     <input type="number" id="angY" placeholder="0.0" step="0.1">
 
-    <button onclick="calcular()">CALCULAR DESPLOME MATRICIAL</button>
+    <button onclick="calcular()">Calcular Desplome Matricial</button>
 
     <div id="resultado" class="result" style="display:none;">
-        <p id="desplomeTexto" style="margin: 0; font-size: 1em;"></p>
+        <strong style="font-size: 0.85em; color: #b71c1c;">RESULTADOS DE MEDICIÓN:</strong>
+        <p id="desplomeTexto" style="margin: 10px 0 0 0; font-size: 1.1em; line-height: 1.5;"></p>
     </div>
 
     <div class="authors-box">
-        <div style="font-size: 0.7em; color: #b71c1c; font-weight: bold; margin-bottom: 5px;">DESARROLLADO POR:</div>
-        <div class="names">Hernández, Christopher — López, María — Figueroa, Daniela</div>
-        <div class="faculty">FACULTAD MULTIDISCIPLINARIA DE OCCIDENTE<br>UNIVERSIDAD DE EL SALVADOR © 2026</div>
+        <div class="authors-title">DESARROLLADO POR:</div>
+        <div class="names">
+            Hernández, Christopher — López, María — Figueroa, Daniela
+        </div>
+        <div class="faculty">
+            Facultad Multidiscipilinaria de Occidente<br>
+            Universidad de El Salvador © 2026
+        </div>
     </div>
 </div>
 
@@ -67,21 +71,24 @@
         const yDeg = parseFloat(document.getElementById('angY').value);
         
         if (isNaN(H) || isNaN(xDeg) || isNaN(yDeg)) {
-            alert("Por favor complete los datos.");
+            alert("Por favor, ingrese todos los valores requeridos.");
             return;
         }
 
         const rad = Math.PI / 180;
+        // Cálculo basado en componentes trigonométricos
         let desplomeX = H * Math.sin(yDeg * rad);
         let desplomeY = H * Math.sin(xDeg * rad);
         let desplomeTotal = Math.sqrt(Math.pow(desplomeX, 2) + Math.pow(desplomeY, 2));
 
-        document.getElementById('resultado').style.display = "block";
+        const resDiv = document.getElementById('resultado');
+        resDiv.style.display = "block";
+        
         document.getElementById('desplomeTexto').innerHTML = 
-            `Desplome X: <b>${(desplomeX * 100).toFixed(2)} cm</b><br>` +
-            `Desplome Y: <b>${(desplomeY * 100).toFixed(2)} cm</b><br>` +
+            `Desplome en X: <b>${(desplomeX * 100).toFixed(2)} cm</b><br>` +
+            `Desplome en Y: <b>${(desplomeY * 100).toFixed(2)} cm</b><br>` +
             `<hr style="border:0; border-top:1px solid #f5c6cb; margin:10px 0;">` +
-            `<span style="color: #b71c1c;"><b>Total: ${(desplomeTotal * 100).toFixed(2)} cm</b></span>`;
+            `<span style="color: #b71c1c;"><b>Desplome Total: ${(desplomeTotal * 100).toFixed(2)} cm</b></span>`;
     }
 </script>
 
