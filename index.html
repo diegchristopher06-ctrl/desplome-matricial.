@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Desplome - Ingeniería Civil</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; padding: 20px; color: #212529; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; padding: 20px; color: #212529; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .container { max-width: 450px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-top: 6px solid #b71c1c; }
         .header { text-align: center; margin-bottom: 20px; }
         
-        /* Ajuste del logo para que siempre cargue */
-        .logo { max-width: 120px; height: auto; margin-bottom: 15px; display: block; margin-left: auto; margin-right: auto; }
+        /* Estilo para el logo SVG integrado */
+        .logo-svg { width: 80px; height: auto; margin-bottom: 15px; fill: #b71c1c; }
         
         h2 { color: #b71c1c; margin: 0; font-size: 1.5em; letter-spacing: 0.5px; text-transform: uppercase; }
         .sub-header { color: #6c757d; font-size: 0.85em; margin-top: 5px; font-weight: bold; }
@@ -34,8 +34,11 @@
 
 <div class="container">
     <div class="header">
-        <!-- URL DEL LOGO ACTUALIZADA Y MÁS ESTABLE -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Logo_de_la_UES.svg/120px-Logo_de_la_UES.svg.png" alt="Logo UES" class="logo">
+        <!-- Logo Escudo UES Integrado (SVG) -->
+        <svg class="logo-svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm0 472c-119.3 0-216-96.7-216-216S136.7 40 256 40s216 96.7 216 216-96.7 216-216 216z"/>
+            <path d="M352 128H160c-17.7 0-32 14.3-32 32v192c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32zm-8 216H168V168h176v176z"/>
+        </svg>
         <h2>Ingeniería Civil</h2>
         <div class="sub-header">Proyecto de: Álgebra Vectorial y Lineal (2026)</div>
     </div>
