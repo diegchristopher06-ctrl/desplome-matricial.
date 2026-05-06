@@ -8,18 +8,18 @@
         body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; padding: 20px; color: #212529; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .container { max-width: 450px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-top: 6px solid #b71c1c; }
         .header { text-align: center; margin-bottom: 20px; }
-        .logo-ues { max-width: 120px; height: auto; margin-bottom: 15px; }
+        
+        /* Estilo del Escudo UES Dibujado */
+        .escudo-ues { width: 100px; height: 100px; margin: 0 auto 15px auto; display: block; }
+        
         h2 { color: #b71c1c; margin: 0; font-size: 1.5em; letter-spacing: 0.5px; text-transform: uppercase; }
         .sub-header { color: #6c757d; font-size: 0.85em; margin-top: 5px; font-weight: bold; }
         label { display: block; margin-top: 18px; font-weight: 600; font-size: 0.85em; color: #495057; }
         input { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ced4da; border-radius: 6px; box-sizing: border-box; font-size: 1em; }
-        input:focus { border-color: #b71c1c; outline: none; background-color: #fff8f8; }
-        button { width: 100%; padding: 15px; background-color: #b71c1c; color: white; border: none; border-radius: 6px; margin-top: 25px; font-size: 15px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        button:hover { background-color: #8e1616; }
+        button { width: 100%; padding: 15px; background-color: #b71c1c; color: white; border: none; border-radius: 6px; margin-top: 25px; font-size: 15px; font-weight: bold; cursor: pointer; }
         .result { margin-top: 25px; padding: 15px; background-color: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 6px; }
         .authors-box { margin-top: 40px; padding-top: 15px; border-top: 1px solid #eee; text-align: center; }
-        .authors-title { font-size: 0.7em; color: #b71c1c; font-weight: bold; letter-spacing: 2px; margin-bottom: 8px; }
-        .names { font-size: 0.85em; color: #495057; font-style: italic; line-height: 1.6; }
+        .names { font-size: 0.85em; color: #495057; font-style: italic; }
         .faculty { font-size: 0.7em; color: #adb5bd; margin-top: 8px; font-weight: bold; text-transform: uppercase; }
     </style>
 </head>
@@ -27,8 +27,13 @@
 
 <div class="container">
     <div class="header">
-        <!-- LOGO UES ENCRIPTADO PARA QUE CARGUE SIEMPRE -->
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAAB4YyS8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQwIDc5LjE2MDQ1MSwgMjAxNy8wNS8wNi0wMTowODoyMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0NzJERDY2QjI2RDkxMUVFOUFDM0I1MkZDRThCMEY0NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0NzJERDY2QzI2RDkxMUVFOUFDM0I1MkZDRThCMEY0NyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ3MkRENjY5MjZEOTExRUU5QUMzQjUyRkNFOEIwRjQ3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjQ3MkRENjZBMjZEOTExRUU5QUMzQjUyRkNFOEIwRjQ3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBNZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VvAnZAAAAAFQTFRFALcc////pG6pkAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAGVJREFUeNrs0UESgCAQA0Ge/P9p78C4M6Y6S9Y6S7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS7YpS/YfAQYA97YAt977fXAAAAAASUVORK5CYII=" alt="Logo UES" class="logo-ues">
+        <svg class="escudo-ues" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#b71c1c" stroke-width="2"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#b71c1c" stroke-width="1"/>
+            <path d="M50 25 L53 38 L67 38 L56 46 L60 60 L50 52 L40 60 L44 46 L33 38 L47 38 Z" fill="#b71c1c"/>
+            <text x="50" y="82" font-family="Arial" font-size="10" text-anchor="middle" fill="#b71c1c" font-weight="bold">UES</text>
+        </svg>
+        
         <h2>Ingeniería Civil</h2>
         <div class="sub-header">Proyecto de: Álgebra Vectorial y Lineal (2026)</div>
     </div>
@@ -45,19 +50,13 @@
     <button onclick="calcular()">CALCULAR DESPLOME MATRICIAL</button>
 
     <div id="resultado" class="result" style="display:none;">
-        <strong style="font-size: 0.9em;">REPORTE TÉCNICO - GRUPO 6:</strong>
-        <p id="desplomeTexto" style="margin: 10px 0 0 0; font-size: 1em;"></p>
+        <p id="desplomeTexto" style="margin: 0; font-size: 1em;"></p>
     </div>
 
     <div class="authors-box">
-        <div class="authors-title">DESARROLLADO POR:</div>
-        <div class="names">
-            Hernández, Christopher — López, María — Figueroa, Daniela
-        </div>
-        <div class="faculty">
-            FACULTAD MULTIDISCIPLINARIA DE OCCIDENTE<br>
-            UNIVERSIDAD DE EL SALVADOR © 2026
-        </div>
+        <div style="font-size: 0.7em; color: #b71c1c; font-weight: bold; margin-bottom: 5px;">DESARROLLADO POR:</div>
+        <div class="names">Hernández, Christopher — López, María — Figueroa, Daniela</div>
+        <div class="faculty">FACULTAD MULTIDISCIPLINARIA DE OCCIDENTE<br>UNIVERSIDAD DE EL SALVADOR © 2026</div>
     </div>
 </div>
 
@@ -68,7 +67,7 @@
         const yDeg = parseFloat(document.getElementById('angY').value);
         
         if (isNaN(H) || isNaN(xDeg) || isNaN(yDeg)) {
-            alert("Error: Ingrese todos los datos.");
+            alert("Por favor complete los datos.");
             return;
         }
 
@@ -79,10 +78,10 @@
 
         document.getElementById('resultado').style.display = "block";
         document.getElementById('desplomeTexto').innerHTML = 
-            `Desplome Lateral X: <b>${(desplomeX * 100).toFixed(2)} cm</b><br>` +
-            `Desplome Frontal Y: <b>${(desplomeY * 100).toFixed(2)} cm</b><br>` +
+            `Desplome X: <b>${(desplomeX * 100).toFixed(2)} cm</b><br>` +
+            `Desplome Y: <b>${(desplomeY * 100).toFixed(2)} cm</b><br>` +
             `<hr style="border:0; border-top:1px solid #f5c6cb; margin:10px 0;">` +
-            `<span style="font-size: 1.1em; color: #b71c1c;"><b>Desplome Resultante: ${(desplomeTotal * 100).toFixed(2)} cm</b></span>`;
+            `<span style="color: #b71c1c;"><b>Total: ${(desplomeTotal * 100).toFixed(2)} cm</b></span>`;
     }
 </script>
 
