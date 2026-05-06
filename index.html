@@ -22,14 +22,14 @@
         
         .result { margin-top: 25px; padding: 15px; background-color: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 6px; }
         
-        /* Sección de Apps Recomendadas */
-        .app-links { margin-top: 30px; padding: 15px; background-color: #f1f3f5; border-radius: 8px; text-align: center; }
-        .app-title { font-size: 0.75em; color: #495057; font-weight: bold; margin-bottom: 12px; text-transform: uppercase; }
-        .btn-group { display: flex; justify-content: space-around; gap: 10px; }
-        .app-btn { flex: 1; padding: 10px; border-radius: 5px; text-decoration: none; font-size: 0.8em; font-weight: bold; color: white; transition: opacity 0.3s; }
+        .app-links { margin-top: 30px; padding: 15px; background-color: #f8f9fa; border: 1px solid #eee; border-radius: 8px; text-align: center; }
+        /* Encabezado en Rojo y Mayúsculas */
+        .app-title { font-size: 0.8em; color: #b71c1c; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-group { display: flex; justify-content: center; gap: 15px; }
+        .app-btn { min-width: 100px; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 0.85em; font-weight: bold; transition: transform 0.2s; }
         .android { background-color: #3DDC84; color: #073042; }
         .ios { background-color: #000000; color: white; }
-        .app-btn:hover { opacity: 0.8; }
+        .app-btn:active { transform: scale(0.95); }
 
         .authors-box { margin-top: 30px; padding-top: 15px; border-top: 1px solid #eee; text-align: center; }
         .names { font-size: 0.85em; color: #495057; font-style: italic; }
@@ -61,13 +61,13 @@
     </div>
 
     <div class="app-links">
-        <div class="app-title">Herramientas de Medición (Clinometer)</div>
+        <div class="app-title">APP DE MEDICIÓN DE ÁNGULOS</div>
         <div class="btn-group">
             <a href="https://play.google.com/store/apps/details?id=com.plaincode.clinometer" target="_blank" class="app-btn android">
-                Link Android
+                ANDROID
             </a>
             <a href="https://apps.apple.com/us/app/clinometer-level-and-slope/id286215117" target="_blank" class="app-btn ios">
-                Link iOS
+                IOS
             </a>
         </div>
     </div>
@@ -86,7 +86,7 @@
         const yDeg = parseFloat(document.getElementById('angY').value);
         
         if (isNaN(H) || isNaN(xDeg) || isNaN(yDeg)) {
-            alert("Por favor, ingrese todos los datos.");
+            alert("Error: Ingrese todos los parámetros.");
             return;
         }
 
@@ -100,7 +100,7 @@
             `Desplome en X: <b>${(desplomeX * 100).toFixed(2)} cm</b><br>` +
             `Desplome en Y: <b>${(desplomeY * 100).toFixed(2)} cm</b><br>` +
             `<hr style="border:0; border-top:1px solid #f5c6cb; margin:10px 0;">` +
-            `<span style="font-size: 1.1em; color: #b71c1c;"><b>Desplome Total: ${(desplomeTotal * 100).toFixed(2)} cm</b></span>`;
+            `<span style="font-size: 1.1em; color: #b71c1c;"><b>Desplome Resultante: ${(desplomeTotal * 100).toFixed(2)} cm</b></span>`;
     }
 </script>
 
