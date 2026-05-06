@@ -9,8 +9,8 @@
         .container { max-width: 450px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-top: 6px solid #b71c1c; }
         .header { text-align: center; margin-bottom: 20px; }
         
-        /* Estilo para el logo SVG integrado */
-        .logo-svg { width: 80px; height: auto; margin-bottom: 15px; fill: #b71c1c; }
+        /* Estilo para el escudo oficial UES detallado */
+        .logo-ues { width: 100px; height: auto; margin-bottom: 15px; }
         
         h2 { color: #b71c1c; margin: 0; font-size: 1.5em; letter-spacing: 0.5px; text-transform: uppercase; }
         .sub-header { color: #6c757d; font-size: 0.85em; margin-top: 5px; font-weight: bold; }
@@ -34,10 +34,13 @@
 
 <div class="container">
     <div class="header">
-        <!-- Logo Escudo UES Integrado (SVG) -->
-        <svg class="logo-svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-            <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm0 472c-119.3 0-216-96.7-216-216S136.7 40 256 40s216 96.7 216 216-96.7 216-216 216z"/>
-            <path d="M352 128H160c-17.7 0-32 14.3-32 32v192c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32zm-8 216H168V168h176v176z"/>
+        <!-- Escudo Detallado de la UES -->
+        <svg class="logo-ues" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="none" stroke="#b71c1c" stroke-width="2"/>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#b71c1c" stroke-width="1"/>
+            <path d="M50 20 L55 35 L70 35 L58 45 L62 60 L50 50 L38 60 L42 45 L30 35 L45 35 Z" fill="#b71c1c"/>
+            <path d="M50 15 A35 35 0 0 1 85 50 M15 50 A35 35 0 0 1 50 15" fill="none" stroke="#b71c1c" stroke-width="3" stroke-linecap="round"/>
+            <text x="50" y="85" font-family="Arial" font-size="8" text-anchor="middle" fill="#b71c1c" font-weight="bold">UES</text>
         </svg>
         <h2>Ingeniería Civil</h2>
         <div class="sub-header">Proyecto de: Álgebra Vectorial y Lineal (2026)</div>
@@ -47,10 +50,10 @@
     <input type="number" id="altura" placeholder="Ej: 3.50" step="0.01">
 
     <label>Ángulo en Eje X (Grados):</label>
-    <input type="number" id="angX" placeholder="Lectura X" step="0.1">
+    <input type="number" id="angX" placeholder="0.0" step="0.1">
 
     <label>Ángulo en Eje Y (Grados):</label>
-    <input type="number" id="angY" placeholder="Lectura Y" step="0.1">
+    <input type="number" id="angY" placeholder="0.0" step="0.1">
 
     <button onclick="calcular()">CALCULAR DESPLOME MATRICIAL</button>
 
