@@ -90,7 +90,7 @@
         <div class="app-title">APP DE MEDICIÓN DE ÁNGULOS</div>
         <div class="btn-group">
             <a href="https://play.google.com/store/apps/details?id=leveltool.bubblelevel.level.leveler" target="_blank" class="app-btn android">ANDROID</a>
-            <a href="https://apps.apple.com/us/app/bubble-level-meter/id1439243265" target="_blank" class="app-btn ios">IOS</a>
+            <a href="https://apps.apple.com/us/app/clinometer-level-and-slope/id286215117" target="_blank" class="app-btn ios">IOS</a>
         </div>
     </div>
 
@@ -121,21 +121,35 @@
 
         const rad = Math.PI / 180;
         
-        // 1. Transformación de ángulos de Euler a radianes
-        const alpha = xDeg * rad; 
-        const beta = yDeg * rad;  
-        const gamma = zDeg * rad; 
-
-        // 2. Proyección espacial del vector inclinado
-        const dx = Math.sin(alpha);
-        const dy = Math.sin(beta);
-
-        // 3. Matriz de rotación en el plano horizontal según el Azimut (Ángulo Z)
-        let desplomeX_m = H * (dx * Math.cos(gamma) - dy * Math.sin(gamma));
-        let desplomeY_m = H * (dx * Math.sin(gamma) + dy * Math.cos(gamma));
+        // 1. Convertir inclinaciones directas usando la tangente del ángulo de desviación
+        // Esto asegura que se calcule la componente lineal real por cada eje
+        let dx_proyectado = H * Math.tan(xDeg * rad);
+        let dy_proyectado = H * Math.tan(yDeg * rad);
         
-        // 4. Magnitud del Desplome Total (Teorema de Pitágoras en 3D)
+        // 2. Aplicación de la matriz de rotación horizontal (Ángulo Z / Azimut)
+        const gamma = zDeg * rad;
+        let desplomeX_m = dx_proyectado * Math.cos(gamma) - dy_proyectado * Math.sin(gamma);
+        let desplomeY_m = dx_proyectado * Math.sin(gamma) + dy_proyectado * Math.cos(gamma);
+        
+        // 3. Magnitud del Desplome Total (Teorema de Pitágoras)
         let desplomeTotal_m = Math.sqrt(Math.pow(desplomeX_m, 2) + Math.pow(desplomeY_m, 2));
 
-        // Conversión final a centímetros para la pantalla
-        const desplomeX_
+        // 4. Forzar valores absolutos para evitar signos negativos en la visualización física
+        const desplomeX_cm = Math.abs(desplomeX_m * 100);
+        const desplomeY_cm = Math.abs(desplomeY_m * 100);
+        const desplomeTotal_cm = desplomeTotal_m * 100;
+
+        const resDiv = document.getElementById('resultado');
+        resDiv.style.display = "block";
+        
+        document.getElementById('desplomeTexto').innerHTML = 
+            `Desplome en X: <b>${desplomeX_cm.toFixed(2)} cm</b><br>` +
+            `Desplome en Y: <b>${desplomeY_cm.toFixed(2)} cm</b><br>` +
+            `Orientación Z: <b>${zDeg.toFixed(1)}° ${sentido}</b><br>` +
+            `<hr style="border:0; border-top:1px solid #f5c6cb; margin:10px 0;">` +
+            `<span style="color: #b71c1c;"><b>Desplome Total: ${desplomeTotal_cm.toFixed(2)} cm</b></span>`;
+    }
+</script>
+
+</body>
+</html>
