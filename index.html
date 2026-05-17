@@ -6,136 +6,135 @@
 <title>Calculadora de Desplome - Ingeniería Civil</title>
 
 <style>
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f8f9fa;
-    padding: 20px;
-    color: #212529;
-}
-
-.container {
-    max-width: 450px;
-    margin: auto;
-    background: white;
-    padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    border-top: 8px solid #b71c1c;
-}
-
-h2 {
-    color: #b71c1c;
-    text-align: center;
-}
-
-label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    background-color: #b71c1c;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.result {
-    margin-top: 20px;
-    padding: 15px;
-    background: #fdf2f2;
-    border: 1px solid #f5c6cb;
-    border-radius: 6px;
-}
+body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; padding: 20px; color: #212529; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+.container { max-width: 450px; margin: auto; background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-top: 8px solid #b71c1c; }
+.header { text-align: center; margin-bottom: 30px; }
+.logo { max-width: 120px; height: auto; margin-bottom: 15px; display: block; margin-left: auto; margin-right: auto; }
+h2 { color: #b71c1c; margin: 0; font-size: 1.8em; letter-spacing: 1px; text-transform: uppercase; font-weight: 800; }
+.sub-header { color: #6c757d; font-size: 0.9em; margin-top: 8px; font-weight: bold; }
+label { display: block; margin-top: 20px; font-weight: 600; font-size: 0.85em; color: #495057; text-transform: uppercase; }
+input, select { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ced4da; border-radius: 6px; box-sizing: border-box; font-size: 1em; transition: 0.2s; background-color: white; }
+input:focus, select:focus { border-color: #b71c1c; outline: none; box-shadow: 0 0 0 3px rgba(183, 28, 28, 0.1); }
+button { width: 100%; padding: 16px; background-color: #b71c1c; color: white; border: none; border-radius: 6px; margin-top: 30px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+button:hover { background-color: #8e1616; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(183, 28, 28, 0.2); }
+.result { margin-top: 25px; padding: 15px; background-color: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 6px; animation: fadeIn 0.5s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.app-links { margin-top: 30px; padding: 20px; background-color: #f8f9fa; border: 1px solid #eee; border-radius: 8px; text-align: center; }
+.app-title { font-size: 0.8em; color: #b71c1c; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+.btn-group { display: flex; justify-content: center; gap: 15px; }
+.app-btn { min-width: 100px; padding: 12px; border-radius: 5px; text-decoration: none; font-size: 0.85em; font-weight: bold; transition: 0.2s; text-align: center; }
+.android { background-color: #3DDC84; color: #073042; }
+.ios { background-color: #000000; color: white; }
+.app-btn:hover { opacity: 0.8; transform: scale(1.02); }
+.authors-box { margin-top: 45px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; }
+.authors-title { font-size: 0.75em; color: #b71c1c; font-weight: bold; letter-spacing: 2px; margin-bottom: 10px; }
+.names { font-size: 0.85em; color: #495057; font-style: italic; line-height: 1.6; }
+.faculty { font-size: 0.7em; color: #adb5bd; margin-top: 12px; font-weight: bold; text-transform: uppercase; line-height: 1.4; }
 </style>
 </head>
 
 <body>
 
 <div class="container">
-
-<h2>Calculadora de Desplome</h2>
-
-<label>Altura (m):</label>
-<input type="number" id="altura">
-
-<label>Ángulo X (°):</label>
-<input type="number" id="angX">
-
-<label>Ángulo Y (°):</label>
-<input type="number" id="angY">
-
-<label>Ángulo Z (°):</label>
-<input type="number" id="angZ">
-
-<label>Sentido Z:</label>
-<select id="sentidoZ">
-<option value="N">N</option>
-<option value="S">S</option>
-<option value="E">E</option>
-<option value="O">O</option>
-</select>
-
-<button onclick="calcular()">Calcular</button>
-
-<div id="resultado" class="result" style="display:none;">
-<p id="desplomeTexto"></p>
+<div class="header">
+<img src="logo_ues.png" alt="Logo UES" class="logo">
+<h2>Ingeniería Civil</h2>
+<div class="sub-header">Álgebra Vectorial y Lineal (2026)</div>
 </div>
 
+<label>Altura de la Estructura (m):</label>
+<input type="number" id="altura" placeholder="Ej: 3.50" step="0.01">
+
+<label>Ángulo en Eje X (Grados):</label>
+<input type="number" id="angX" placeholder="0.0" step="0.1">
+
+<label>Ángulo en Eje Y (Grados):</label>
+<input type="number" id="angY" placeholder="0.0" step="0.1">
+
+<label>Ángulo en Eje Z (Grados):</label>
+<input type="number" id="angZ" placeholder="0.0" step="0.1">
+
+<label>Sentido Cardinal (Eje Z):</label>
+<select id="sentidoZ">
+<option value="N">N (Norte)</option>
+<option value="S">S (Sur)</option>
+<option value="E">E (Este)</option>
+<option value="O">O (Oeste)</option>
+<option value="NE">NE (Noreste)</option>
+<option value="NO">NO (Noroeste)</option>
+<option value="SE">SE (Sureste)</option>
+<option value="SO">SO (Suroeste)</option>
+</select>
+
+<button onclick="calcular()">Calcular Desplome Matricial</button>
+
+<div id="resultado" class="result" style="display:none;">
+<strong style="font-size: 0.85em; color: #b71c1c;">RESULTADOS DE MEDICIÓN:</strong>
+<p id="desplomeTexto" style="margin: 10px 0 0 0; font-size: 1.1em; line-height: 1.5;"></p>
+</div>
+
+<div class="app-links">
+<div class="app-title">APP DE MEDICIÓN DE ÁNGULOS</div>
+<div class="btn-group">
+<a href="https://play.google.com/store/apps/details?id=leveltool.bubblelevel.level.leveler" target="_blank" class="app-btn android">ANDROID</a>
+<a href="https://apps.apple.com/us/app/clinometer-level-and-slope/id286215117" target="_blank" class="app-btn ios">IOS</a>
+</div>
+</div>
+
+<div class="authors-box">
+<div class="authors-title">DESARROLLADO POR:</div>
+<div class="names">
+Hernández, Christopher — López, María — Figueroa, Daniela
+</div>
+<div class="faculty">
+Facultad Multidisciplinaria de Occidente<br>
+Universidad de El Salvador © 2026
+</div>
+</div>
 </div>
 
 <script>
 function calcular() {
 
-    const H_m = parseFloat(document.getElementById('altura').value);
-    const xDeg = parseFloat(document.getElementById('angX').value);
-    const yDeg = parseFloat(document.getElementById('angY').value);
-    const zDeg = parseFloat(document.getElementById('angZ').value);
-    const sentido = document.getElementById('sentidoZ').value;
+const H_m = parseFloat(document.getElementById('altura').value);
+const xDeg = parseFloat(document.getElementById('angX').value);
+const yDeg = parseFloat(document.getElementById('angY').value);
+const zDeg = parseFloat(document.getElementById('angZ').value);
+const sentido = document.getElementById('sentidoZ').value;
 
-    if (isNaN(H_m) || isNaN(xDeg) || isNaN(yDeg) || isNaN(zDeg)) {
-        alert("Ingrese todos los datos");
-        return;
-    }
+if (isNaN(H_m) || isNaN(xDeg) || isNaN(yDeg) || isNaN(zDeg)) {
+alert("Por favor, ingrese todos los valores requeridos.");
+return;
+}
 
-    const H_cm = H_m * 100;
+const H_cm = H_m * 100;
+const rad = Math.PI / 180;
 
-    const rad = Math.PI / 180;
-    const theta = xDeg * rad;
-    const phi = yDeg * rad;
-    const psi = zDeg * rad;
+const theta = xDeg * rad;
+const phi = yDeg * rad;
+const psi = zDeg * rad;
 
-    // 🔥 CORRECCIÓN PRINCIPAL
-    let x_inc = H_cm * Math.tan(phi);
-    let y_inc = H_cm * Math.tan(theta);
+// 🔥 CORRECCIÓN MATEMÁTICA
+let x_inc = H_cm * Math.tan(phi);
+let y_inc = H_cm * Math.tan(theta);
 
-    // Rotación Z
-    let cosZ = Math.cos(psi);
-    let sinZ = Math.sin(psi);
+let cosZ = Math.cos(psi);
+let sinZ = Math.sin(psi);
 
-    let x_final = (x_inc * cosZ) - (y_inc * sinZ);
-    let y_final = (x_inc * sinZ) + (y_inc * cosZ);
+let desplomeX_cm = (x_inc * cosZ) - (y_inc * sinZ);
+let desplomeY_cm = (x_inc * sinZ) + (y_inc * cosZ);
 
-    let total = Math.sqrt(x_final*x_final + y_final*y_final);
+let desplomeTotal_cm = Math.sqrt(Math.pow(desplomeX_cm, 2) + Math.pow(desplomeY_cm, 2));
 
-    document.getElementById('resultado').style.display = "block";
+const resDiv = document.getElementById('resultado');
+resDiv.style.display = "block";
 
-    document.getElementById('desplomeTexto').innerHTML =
-        "Desplome X: " + x_final.toFixed(2) + " cm<br>" +
-        "Desplome Y: " + y_final.toFixed(2) + " cm<br>" +
-        "Total: " + total.toFixed(2) + " cm";
+document.getElementById('desplomeTexto').innerHTML =
+`Desplome en X: <b>${desplomeX_cm.toFixed(2)} cm</b><br>` +
+`Desplome en Y: <b>${desplomeY_cm.toFixed(2)} cm</b><br>` +
+`Orientación Z: <b>${zDeg.toFixed(1)}° ${sentido}</b><br>` +
+`<hr style="border:0; border-top:1px solid #f5c6cb; margin:10px 0;">` +
+`<span style="color: #b71c1c;"><b>Desplome Total: ${desplomeTotal_cm.toFixed(2)} cm</b></span>`;
 }
 </script>
 
