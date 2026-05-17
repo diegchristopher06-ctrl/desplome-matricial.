@@ -1,4 +1,4 @@
-Aquí tienes el archivo HTML completo con todos los cambios integrados de manera exacta.Se corrigió la función matemática calcular() para que use la proyección tridimensional y la matriz de rotación real con el ángulo $Z$ (evitando que dé resultados diferentes a los del informe), y se actualizaron ambos enlaces (tanto el de ANDROID como el de IOS) para que apunten exactamente a la URL que me pasaste.HTML<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -90,7 +90,7 @@ Aquí tienes el archivo HTML completo con todos los cambios integrados de manera
         <div class="app-title">APP DE MEDICIÓN DE ÁNGULOS</div>
         <div class="btn-group">
             <a href="https://play.google.com/store/apps/details?id=leveltool.bubblelevel.level.leveler" target="_blank" class="app-btn android">ANDROID</a>
-            <a href="https://play.google.com/store/apps/details?id=leveltool.bubblelevel.level.leveler" target="_blank" class="app-btn ios">IOS</a>
+            <a href="https://apps.apple.com/us/app/bubble-level-meter/id1439243265" target="_blank" class="app-btn ios">IOS</a>
         </div>
     </div>
 
@@ -138,21 +138,4 @@ Aquí tienes el archivo HTML completo con todos los cambios integrados de manera
         let desplomeTotal_m = Math.sqrt(Math.pow(desplomeX_m, 2) + Math.pow(desplomeY_m, 2));
 
         // Conversión final a centímetros para la pantalla
-        const desplomeX_cm = desplomeX_m * 100;
-        const desplomeY_cm = desplomeY_m * 100;
-        const desplomeTotal_cm = desplomeTotal_m * 100;
-
-        const resDiv = document.getElementById('resultado');
-        resDiv.style.display = "block";
-        
-        document.getElementById('desplomeTexto').innerHTML = 
-            `Desplome en X: <b>${desplomeX_cm.toFixed(2)} cm</b><br>` +
-            `Desplome en Y: <b>${desplomeY_cm.toFixed(2)} cm</b><br>` +
-            `Orientación Z: <b>${zDeg.toFixed(1)}° ${sentido}</b><br>` +
-            `<hr style="border:0; border-top:1px solid #f5c6cb; margin:10px 0;">` +
-            `<span style="color: #b71c1c;"><b>Desplome Total: ${desplomeTotal_cm.toFixed(2)} cm</b></span>`;
-    }
-</script>
-
-</body>
-</html>
+        const desplomeX_
