@@ -114,15 +114,29 @@ const theta = xDeg * rad;
 const phi = yDeg * rad;
 const psi = zDeg * rad;
 
-// 🔥 CORRECCIÓN MATEMÁTICA
-let x_inc = H_cm * Math.tan(phi);
-let y_inc = H_cm * Math.tan(theta);
+// 🔥 CORRECCIÓN MATEMÁTICA: CÁLCULO MATRICIAL 3D (Z-Y-X)
+// 1. Vector inicial v0 = [0, 0, H]
+let v0_x = 0;
+let v0_y = 0;
+let v0_z = H_cm;
 
-let cosZ = Math.cos(psi);
-let sinZ = Math.sin(psi);
+// 2. Matriz Rx (Pitch)
+let v1_x = v0_x;
+let v1_y = v0_y * Math.cos(theta) - v0_z * Math.sin(theta);
+let v1_z = v0_y * Math.sin(theta) + v0_z * Math.cos(theta);
 
-let desplomeX_cm = (x_inc * cosZ) - (y_inc * sinZ);
-let desplomeY_cm = (x_inc * sinZ) + (y_inc * cosZ);
+// 3. Matriz Ry (Roll)
+let v2_x = v1_x * Math.cos(phi) + v1_z * Math.sin(phi);
+let v2_y = v1_y;
+let v2_z = -v1_x * Math.sin(phi) + v1_z * Math.cos(phi);
+
+// 4. Matriz Rz (Azimut)
+let vf_x = v2_x * Math.cos(psi) - v2_y * Math.sin(psi);
+let vf_y = v2_x * Math.sin(psi) + v2_y * Math.cos(psi);
+
+// Obtención de desplomes resultantes
+let desplomeX_cm = vf_x;
+let desplomeY_cm = vf_y;
 
 let desplomeTotal_cm = Math.sqrt(Math.pow(desplomeX_cm, 2) + Math.pow(desplomeY_cm, 2));
 
